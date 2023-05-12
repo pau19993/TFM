@@ -62,8 +62,10 @@ test_loss, test_acc = model.evaluate(test_images,  test_labels, verbose=2)
 if os.path.isfile('/home/paupcp/TFM/Codigo/TFM/Zalando.h5') is False:
     model.save('/home/paupcp/TFM/Codigo/TFM/Zalando.h5')
 
+saved_model = '/home/paupcp/TFM/Codigo/TFM/Zalando.h5'
+
 # Convert the model.
-converter = tf.lite.TFLiteConverter.from_keras_model(model)
+converter = tf.lite.TFLiteConverter.from_keras_model(saved_model)
 tflite_model = converter.convert()
 
 # Save the model.
