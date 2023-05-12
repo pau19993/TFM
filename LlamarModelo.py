@@ -1,7 +1,7 @@
 """ how to call this model= python3 LlamarModelo.py \
-  --model test_data/model.tflite  \
-  --labels test_data/labels.txt \
-  --input test_data/images.jpeg
+  --model model.tflite  \
+  --labels labels.txt \
+  --input images.jpeg
 """
 
 
