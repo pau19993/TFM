@@ -1,7 +1,22 @@
-""" how to call this model= python3 LlamarModelo.py \
-  --model model.tflite  \
+""" how to call this model= 
+    python3 LlamarModelo.py \
+  --model converted_model.tflite  \
   --labels labels.txt \
   --input images.jpeg
+"""
+
+
+"""
+El modelo ha sido convertido anteriormente desde el keras a uint8 con el código:
+tflite_convert \
+  --output_file=converted_model.tflite \
+  --keras_model_file=Zalando.h5 \
+  --quantize_to_uint8 \
+  --inference_type=QUANTIZED_UINT8 \
+  --input_shapes=1,input_shape \
+  --mean_values=128 \
+  --std_dev_values=127
+
 """
 
 
