@@ -66,6 +66,8 @@ saved_model = '/home/paupcp/TFM/Codigo/TFM/Zalando.h5'
 
 # Convert the model.
 converter = tf.lite.TFLiteConverter.from_keras_model(saved_model)
+converter.inference_input_type = tf.uint8  # or tf.uint8
+converter.inference_output_type = tf.uint8  # or tf.uint8
 tflite_model = converter.convert()
 
 # Save the model.
