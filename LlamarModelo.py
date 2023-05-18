@@ -122,7 +122,7 @@ if __name__ == '__main__':
 python3 LlamarModelo.py \
   --model converted_model.tflite  \
   --labels labels.txt \
-  --input images.jpeg
+  --input images.jpg
 """
 
 import argparse
@@ -197,7 +197,7 @@ def main():
   interpreter = make_interpreter(args.model)
   interpreter.allocate_tensors()
 
-  size = classify.input_size(interpreter) + 1
+  size = classify.input_size(interpreter)
   image = Image.open(args.input).convert('RGB').resize(size , Image.ANTIALIAS)
   classify.set_input(interpreter, image)
 
