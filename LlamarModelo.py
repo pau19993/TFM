@@ -130,7 +130,7 @@ import time
 
 from PIL import Image
 
-import classify
+import PruebaPy
 import tflite_runtime.interpreter as tflite
 import platform
 
