@@ -197,7 +197,7 @@ def main():
   interpreter = make_interpreter(args.model)
   interpreter.allocate_tensors()
 
-  size = classify.input_size(interpreter)
+  size = classify.input_size(interpreter) + 1
   image = Image.open(args.input).convert('RGB').resize(size , Image.ANTIALIAS)
   classify.set_input(interpreter, image)
 
