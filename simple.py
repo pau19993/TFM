@@ -15,8 +15,7 @@ output_index = interpreter.get_output_details()[0]['index']
 
 size = classify.input_size(interpreter)
 image = Image.open('images.jpg').convert('RGB').resize(size, Image.ANTIALIAS)
-foto = np.array(image)[:-1]
-classify.set_input(interpreter, foto)
+classify.set_input(interpreter, image)
 
 """
 interpreter.set_tensor(input_index, features.astype(np.float32))
