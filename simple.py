@@ -15,6 +15,7 @@ output_index = interpreter.get_output_details()[0]['index']
 
 size = classify.input_size(interpreter)
 image = Image.open('images.jpg').convert('RGB').resize(size, Image.ANTIALIAS)
+image = image[:-1]
 classify.set_input(interpreter, image)
 
 """
