@@ -31,7 +31,7 @@ def input_size(interpreter):
   #_, height, width, _ = input_details(interpreter, 'shape')
   variable =  input_details(interpreter, 'shape')
   print (variable)
-  return void
+  #return width, height
 
 
 def input_tensor(interpreter):
