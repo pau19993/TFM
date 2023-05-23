@@ -29,6 +29,8 @@ def input_details(interpreter, key):
 def input_size(interpreter):
   """Returns input image size as (width, height) tuple."""
   _, height, width, _ = input_details(interpreter, 'shape')
+  variable =  input_details(interpreter, 'shape')
+  print (variable)
   return width, height
 
 
