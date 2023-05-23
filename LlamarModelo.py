@@ -127,6 +127,7 @@ python3 LlamarModelo.py \
 
 import argparse
 import time
+import numpy as np
 
 from PIL import Image
 
@@ -198,7 +199,8 @@ def main():
   interpreter.allocate_tensors()
 
   size = classify.input_size(interpreter)
-  image = Image.open(args.input).convert('RGB')#.resize(size , Image.ANTIALIAS)
+  image = Image.open(args.input).convert('RGB').resize(size , Image.ANTIALIAS)
+  numpy.concatenate(image, 3)
   classify.set_input(interpreter, image)
 
   print('----INFERENCE TIME----')
