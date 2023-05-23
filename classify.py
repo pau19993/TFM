@@ -64,7 +64,7 @@ def output_tensor(interpreter, dequantize=True):
 
 def set_input(interpreter, data):
   """Copies data to input tensor."""
-  input_tensor(interpreter)[:, :] = data
+  input_tensor(interpreter)[:, :, :] = data
 
 
 def get_output(interpreter, top_k=1, score_threshold=0.0):
