@@ -28,10 +28,10 @@ def input_details(interpreter, key):
 
 def input_size(interpreter):
   """Returns input image size as (width, height) tuple."""
-  #_, height, width, _ = input_details(interpreter, 'shape')
+  _, height, width = input_details(interpreter, 'shape')
   variable =  input_details(interpreter, 'shape')
   print (variable)
-  #return width, height
+  return width, height
 
 
 def input_tensor(interpreter):
