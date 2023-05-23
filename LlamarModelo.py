@@ -200,7 +200,7 @@ def main():
 
   size = classify.input_size(interpreter)
   image = Image.open(args.input).convert('RGB').resize(size , Image.ANTIALIAS)
-  numpy.concatenate(image, 3)
+  np.concatenate(image, 3)
   classify.set_input(interpreter, image)
 
   print('----INFERENCE TIME----')
