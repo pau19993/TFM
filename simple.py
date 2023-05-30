@@ -1,3 +1,5 @@
+
+"""
 import numpy as np
 import classify
 import tflite_runtime.interpreter as tflite
@@ -32,3 +34,46 @@ print('%.1fms' % (inference_time * 1000))
 print('-------RESULTS--------')
 for klass in classes:
     print('%s: %.5f' % (labels.get(klass.id, klass.id), klass.score))
+
+
+"""
+
+import numpy as np
+import tflite_runtime.interpreter as tflite
+from PIL import Image
+
+# Cargar el modelo TensorFlow Lite (.tflite)
+interpreter = tflite.Interpreter(model_path="model.tflite")
+interpreter.allocate_tensors()
+
+# Obtener los detalles de entrada y salida del modelo
+input_details = interpreter.get_input_details()
+output_details = interpreter.get_output_details()
+
+# Tamaño de entrada esperado por el modelo
+input_shape = input_details[0]['shape'][1:3]
+
+# Clases de ropa correspondientes a las salidas del modelo
+class_names = ['Camiseta', 'Pantalón', 'Suéter', 'Vestido', 'Abrigo', 'Sandalia', 'Camisa', 'Zapatilla deportiva', 'Bolso', 'Bota']
+
+# Seleccionar una imagen de la carpeta
+image_path = 'images.jpg'
+image = Image.open(image_path).resize(input_shape)
+
+# Preprocesamiento de la imagen
+image_array = np.array(image) / 255.0
+input_data = np.expand_dims(image_array, axis=0)
+
+# Establecer los datos de entrada del modelo
+interpreter.set_tensor(input_details[0]['index'], input_data)
+
+# Realizar la inferencia
+interpreter.invoke()
+
+# Obtener los resultados de la clasificación
+output_data = interpreter.get_tensor(output_details[0]['index'])
+predicted_class_index = np.argmax(output_data)
+predicted_class = class_names[predicted_class_index]
+
+# Mostrar el resultado en pantalla
+print(f'La prenda de ropa en la imagen es: {predicted_class}')
