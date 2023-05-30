@@ -20,9 +20,14 @@ image = Image.open('images.jpg').convert('RGB').resize(size, Image.ANTIALIAS)
 classify.set_input(interpreter, image)
 
 """
+
+"""
+ ESTO NO SE PARA QUE ES!!!!!!!!!!!!!!!
 interpreter.set_tensor(input_index, features.astype(np.float32))
 interpreter.invoke()
 prediction = interpreter.get_tensor(output_index)
+"""
+
 """
 
 start = time.perf_counter()
