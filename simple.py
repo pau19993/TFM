@@ -56,7 +56,7 @@ input_details = interpreter.get_input_details()
 output_details = interpreter.get_output_details()
 
 # Tamaño de entrada esperado por el modelo
-input_shape = input_details[0]['shape'][1:3]
+input_shape = (31, 31)
 
 # Clases de ropa correspondientes a las salidas del modelo
 class_names = ['Camiseta', 'Pantalón', 'Suéter', 'Vestido', 'Abrigo', 'Sandalia', 'Camisa', 'Zapatilla deportiva', 'Bolso', 'Bota']
