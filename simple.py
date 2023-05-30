@@ -72,6 +72,9 @@ input_data = np.expand_dims(image_array, axis=0)
 # Convertir el tipo de datos a FLOAT32
 input_data = input_data.astype(np.float32)
 
+# Ajustar las dimensiones del tensor de entrada
+input_data = np.squeeze(input_data, axis=3)
+
 # Establecer los datos de entrada del modelo
 interpreter.set_tensor(input_details[0]['index'], input_data)
 
