@@ -69,6 +69,10 @@ image = Image.open(image_path).resize(input_shape)
 image_array = np.array(image) / 255.0
 input_data = np.expand_dims(image_array, axis=0)
 
+# Asegurarse de que las dimensiones de la imagen sean correctas
+if image_array.shape != input_shape:
+    image_array = np.resize(image_array, input_shape)
+
 # Convertir el tipo de datos a FLOAT32
 input_data = input_data.astype(np.float32)
 
