@@ -24,6 +24,7 @@ class_names = ['Camiseta', 'Pantalón', 'Suéter', 'Vestido', 'Abrigo', 'Sandali
 # Seleccionar una imagen de la carpeta
 image_path = 'images.jpg'
 image = Image.open(image_path).resize(input_shape[:2])  # Redimensionar solo las dimensiones espaciales
+image = image.resize(input_shape[:2])  # Redimensionar solo las dimensiones espaciales
 
 # Preprocesamiento de la imagen
 image_array = np.array(image) / 255.0
