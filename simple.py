@@ -77,8 +77,7 @@ if image_array.shape != input_shape:
 input_data = input_data.astype(np.float32)
 
 # Asegurarse de que las dimensiones del tensor de entrada sean correctas
-if input_data.shape[1:] != input_shape + (3,):
-    input_data = np.reshape(input_data, (1,) + input_shape + (3,))
+input_data = np.reshape(input_data, (1,) + input_shape + (1,))
 
 # Establecer los datos de entrada del modelo
 interpreter.set_tensor(input_details[0]['index'], input_data)
