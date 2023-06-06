@@ -67,6 +67,9 @@ image = Image.open(image_path).resize(input_shape)
 
 # Preprocesamiento de la imagen
 image_array = np.array(image) / 255.0
+#input_data = np.expand_dims(image_array, axis=0)
+
+# Agregar una dimensión adicional para representar el batch de imágenes
 input_data = np.expand_dims(image_array, axis=0)
 
 # Asegurarse de que las dimensiones de la imagen sean correctas
