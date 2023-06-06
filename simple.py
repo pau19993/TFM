@@ -6,8 +6,13 @@ from PIL import Image
 interpreter = tflite.Interpreter(model_path="model.tflite")
 interpreter.allocate_tensors()
 
-# Obtener los detalles de entrada y salida del modelo
+# Obtener los detalles de entrada del modelo
 input_details = interpreter.get_input_details()
+
+# Imprimir la forma del tensor de entrada
+print("Forma del tensor de entrada:", input_details[0]['shape'])
+
+# Obtener los detalles de salida del modelo
 output_details = interpreter.get_output_details()
 
 # Tamaño de entrada esperado por el modelo
