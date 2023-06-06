@@ -39,6 +39,8 @@ input_data = np.expand_dims(input_data, axis=-1)
 # Convertir el tipo de datos a FLOAT32
 input_data = input_data.astype(np.float32)
 
+input_data = np.reshape(input_data, (1,) + input_shape)
+
 # Establecer los datos de entrada del modelo
 interpreter.set_tensor(input_details[0]['index'], input_data)
 
